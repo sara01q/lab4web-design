@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Untitled 1</title>
+<script type="text/javascript">
+<!--
+function FP_preloadImgs() {//v1.0
+ var d=document,a=arguments; if(!d.FP_imgs) d.FP_imgs=new Array();
+ for(var i=0; i<a.length; i++) { d.FP_imgs[i]=new Image; d.FP_imgs[i].src=a[i]; }
+}
+
+function FP_playSound(path) {//v1.0
+ var b,d=document,e,es,i,se="<EMBED SRC='"+path+"' HIDDEN=TRUE LOOP=FALSE AUTOSTART=TRUE>";			
+ if(d.body)b=d.body;	if(d.getElementsByTagName) { es=d.getElementsByTagName('embed')		
+ for(i=0;i<es.length;i++) { e=es(i); if( e.src==path ) { if(e.removeNode) e.removeNode();
+ break; } } if(b&&b.insertAdjacentHTML) b.insertAdjacentHTML("beforeend",se); }
+}
+
+function FP_swapImg() {//v1.0
+ var doc=document,args=arguments,elm,n; doc.$imgSwaps=new Array(); for(n=2; n<args.length;
+ n+=2) { elm=FP_getObjectByID(args[n]); if(elm) { doc.$imgSwaps[doc.$imgSwaps.length]=elm;
+ elm.$src=elm.src; elm.src=args[n+1]; } }
+}
+
+function FP_getObjectByID(id,o) {//v1.0
+ var c,el,els,f,m,n; if(!o)o=document; if(o.getElementById) el=o.getElementById(id);
+ else if(o.layers) c=o.layers; else if(o.all) el=o.all[id]; if(el) return el;
+ if(o.id==id || o.name==id) return o; if(o.childNodes) c=o.childNodes; if(c)
+ for(n=0; n<c.length; n++) { el=FP_getObjectByID(id,c[n]); if(el) return el; }
+ f=o.forms; if(f) for(n=0; n<f.length; n++) { els=f[n].elements;
+ for(m=0; m<els.length; m++){ el=FP_getObjectByID(id,els[n]); if(el) return el; } }
+ return null;
+}
+
+function FP_swapImgRestore() {//v1.0
+ var doc=document,i; if(doc.$imgSwaps) { for(i=0;i<doc.$imgSwaps.length;i++) {
+  var elm=doc.$imgSwaps[i]; if(elm) { elm.src=elm.$src; elm.$src=null; } } 
+  doc.$imgSwaps=null; }
+}
+
+function FP_changeProp() {//v1.0
+ var args=arguments,d=document,i,j,id=args[0],o=FP_getObjectByID(id),s,ao,v,x;
+ d.$cpe=new Array(); if(o) for(i=2; i<args.length; i+=2) { v=args[i+1]; s="o"; 
+ ao=args[i].split("."); for(j=0; j<ao.length; j++) { s+="."+ao[j]; if(null==eval(s)) { 
+  s=null; break; } } x=new Object; x.o=o; x.n=new Array(); x.v=new Array();
+ x.n[x.n.length]=s; eval("x.v[x.v.length]="+s); d.$cpe[d.$cpe.length]=x;
+ if(s) eval(s+"=v"); }
+}
+
+function FP_changePropRestore() {//v1.0
+ var d=document,x; if(d.$cpe) { for(i=0; i<d.$cpe.length; i++) { x=d.$cpe[i];
+ if(x.v=="") x.v=""; eval("x."+x.n+"=String(x.v)"); } d.$cpe=null; }
+}
+// -->
+</script>
+</head>
+
+<body onload="FP_preloadImgs(/*url*/'button8.jpg',/*url*/'button9.jpg',/*url*/'img2.png',/*url*/'img3.png',/*url*/'img1.png',/*url*/'buttonE1.jpg',/*url*/'buttonF1.jpg')" style="background-color: #008000" onclick="FP_playSound(/*url*/'../Kirby Theme.wav')">
+
+<p>hello i m here</p>
+
+<img height="600" src="img1.png" width="600" id="img1" onmouseover="FP_swapImg(1,0,/*id*/'img1',/*url*/'img2.png')" onmouseout="FP_swapImgRestore()" onclick="FP_swapImg(1,1,/*id*/'img1',/*url*/'img3.png'); FP_swapImg(1,1,/*id*/'img1',/*url*/'img1.png')" />
+
+<p>&nbsp;</p>
+<p id="id1" onmouseover="FP_changeProp(/*id*/'id1',0,'style.textDecoration','underline','style.fontStyle','italic');" onmouseout="FP_changePropRestore()">
+setrhjtydrdtyjdtryj</p>
+<p>
+&nbsp;</p>
+<p>
+&nbsp;</p>
+<p>
+<a href="index.html">
+<img id="img2" alt="indexpage" height="20" onmousedown="FP_swapImg(1,0,/*id*/'img2',/*url*/'buttonF1.jpg')" onmouseout="FP_swapImg(0,0,/*id*/'img2',/*url*/'buttonD1.jpg')" onmouseover="FP_swapImg(1,0,/*id*/'img2',/*url*/'buttonE1.jpg')" onmouseup="FP_swapImg(0,0,/*id*/'img2',/*url*/'buttonE1.jpg')" src="buttonD1.jpg" style="border: 0" width="100" /><!-- MSComment="ibutton" fp-style="fp-btn: Border Bottom 1" fp-title="indexpage" --></a></p>
+
+</body>
+
+</html>
